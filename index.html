@@ -1943,7 +1943,7 @@ As you stand there, you sense that these emitters are only the beginning of some
 
 An **alarm** starts blaring around you, pulling you out of your awe. Shit. You need to shut this all down. //Fast//.
 
-[[Interact with control panels|Control Panels]]</tw-passagedata><tw-passagedata pid="99" name=" Enter " tags="" position="4525,1400" size="100,100">((enchant:?page,(bg:grey))You rush in just as the doors slam shut behind you. 
+[[Interact with control panels|Control Panels]]</tw-passagedata><tw-passagedata pid="99" name=" Enter " tags="" position="4525,1400" size="100,100">(enchant:?page,(bg:grey))You rush in just as the doors slam shut behind you. 
 
 You take in your surroundings.
 
@@ -2294,7 +2294,8 @@ The crystal’s pulse is now erratic and dimming. You've **disrupted the flow**.
 
 You now recall the symbols you’ve seen in the room: **🔺**, **🅾️** and **❌**.
 
-Based on the order of actions, you deduce the correct code is:
+The correct code is:
+(text-colour:black)[=
 {
 (link-repeat: "$triangle")[
     (if: $playerOrder's length &lt; 3)[
@@ -2314,9 +2315,7 @@ Based on the order of actions, you deduce the correct code is:
 }
 
 ---
-
 **Arrange them in the correct order by clicking on them. When you're ready, click "Submit."**
-
 ---
 
 (link: "Submit")[
@@ -2421,17 +2420,16 @@ The crystal’s pulse is now erratic and dimming. You've **disrupted the flow**.
 </tw-passagedata><tw-passagedata pid="134" name=" Access Terminal" tags="" position="5175,800" size="100,100">(enchant:?page,(bg:grey))With the energy in the room weakening, the terminal is now accessible. A prompt appears on the screen:
 
 **"Enter the stabilization code to finalize deactivation."**
-
-(set: $triangle to "🔺")
+&lt;br&gt;(set: $triangle to "🔺")
 (set: $O to "🅾️")
 (set: $X to "❌")
 (set: $correctOrder to (array: $O, $triangle, $X))
-(set: $playerOrder to (array:))
+(set: $playerOrder to (array:))&lt;/br&gt; 
 
 You now recall the symbols you’ve seen in the room: **🔺**, **🅾️** and **❌**.
 
-Based on the order of actions, you deduce the correct code is:
-{
+The correct code is:
+ {
 (link-repeat: "$triangle")[
     (if: $playerOrder's length &lt; 3)[
         (set: $playerOrder to $playerOrder + (array: $triangle))
@@ -2450,11 +2448,9 @@ Based on the order of actions, you deduce the correct code is:
 }
 
 ---
-
 **Arrange them in the correct order by clicking on them. When you're ready, click "Submit."**
-
 ---
-
+(text-colour:black)[=
 (link: "Submit")[
     (if: $playerOrder's length is 3)[
         (if: $playerOrder is $correctOrder)[
