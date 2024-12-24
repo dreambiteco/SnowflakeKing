@@ -753,7 +753,7 @@ You smile at him fondly, then whistle. Momo sits up immediately.
 
 </tw-passagedata><tw-passagedata pid="42" name="Return to the Machine" tags="Good" position="3750,1275" size="100,100">(enchant:?page,(text-colour:black)+(bg:white))You begin your return to the machine. By foot. Peak. 
 
-You realise if you get out of this, the first thinhg you'll is take Momo hunting, back in Canada. Oh Canada... Where pines and maples grow, great prairies spread and lordly rivers flow... How long it seems since you left... 
+You realise if you get out of this, the first thing you'll do is take Momo hunting, back in Canada. Oh Canada... Where pines and maples grow, great prairies spread and lordly rivers flow... How long it seems since you left... 
 
 [[You arrive at the Machine]]
 
@@ -767,21 +767,28 @@ You immediately go back to hiding behind the block of ice that previously saved 
 
 (link: "Submit")[
     (if: (lowercase: $playerAction) matches "put the key in the lock")[
-        (goto: "Enter the Machine")
+        (goto: " Enter the Machine")
     ]
     (else-if: (lowercase: $playerAction) matches "put key in the lock")[
-        (goto: "Enter the Machine")
+        (goto: " Enter the Machine")
     ]
       (else-if: (lowercase: $playerAction) matches "key in lock")[
-        (goto: "Enter the Machine")
+        (goto: " Enter the Machine")
     ]
       (else-if: (lowercase: $playerAction) matches "key into lock")[
-        (goto: "Enter the Machine")
+        (goto: " Enter the Machine")
+     ]
+    (else-if: (lowercase: $playerAction) matches "lock")[
+        (goto: " Enter the Machine")
+    ]
+    (else-if: (lowercase: $playerAction) matches "key")[
+        (goto: " Enter the Machine")
     ]
     (else:)[
         That’s not the correct action. Try again.
     ]
-]</tw-passagedata><tw-passagedata pid="44" name="Bag" tags="Good" position="400,1075" size="100,100">''Your bag contains:''
+]
+[[Reset Puzzle-&gt;You arrive at the Machine]]</tw-passagedata><tw-passagedata pid="44" name="Bag" tags="Good" position="400,1075" size="100,100">''Your bag contains:''
 
 - a pocket knife
 
@@ -963,8 +970,6 @@ You arrive in a cave, water contained in its rocky walls. You notice an opening,
 &lt;img src="https://www.lakehomes.com/info/wp-content/uploads/2021/09/07_UndergroundLakes__SonDoongCave_shutterstock_1487628662-fodors.jpg" alt="Lake Cave"width="600" height="400"&gt;
 
 If only you still had that dope pulsating fishing rod in your bag.. But that won't stop a great fisherman like yourself.
-
-&lt;img src="https://i.imgur.com/4Mcj1wX.png" alt="Lock Image"width="400" height="400"&gt;
 
 You stand knee-deep in the pure, clear water, Momo at your side. You wait silently, for the opportune moment where a careless fish swims past you. Then, Momo leaps and grabs it in his mouth, careful to not splash too loud, so as to not alarm the other fish around. 
 
@@ -2162,10 +2167,16 @@ You immediately go back to hiding behind the block of ice that previously saved 
       (else-if: (lowercase: $playerAction) matches "key into lock")[
         (goto: " Enter the Machine ")
     ]
-    (else:)[
-        That’s not the correct action. Try again.
+    (else-if: (lowercase: $playerAction) matches "lock")[
+        (goto: " Enter the Machine ")
     ]
-]</tw-passagedata><tw-passagedata pid="113" name=" Enter the Machine " tags="Good" position="4025,800" size="100,100">The crystal key feels cold and heavy in your hand, its facets glinting ominously under the machine's powerful light. 
+    (else-if: (lowercase: $playerAction) matches "key")[
+        (goto: " Enter the Machine ")
+    ]
+    (else:)
+        That’s not the correct action. Try again.
+]
+[[Reset Puzzle-&gt; You arrive at the Machine ]]</tw-passagedata><tw-passagedata pid="113" name=" Enter the Machine " tags="Good" position="4025,800" size="100,100">The crystal key feels cold and heavy in your hand, its facets glinting ominously under the machine's powerful light. 
 
 You approach the **lock**, a deep, jagged indentation carved into it -  the perfect shape for your key.
  
@@ -2333,9 +2344,8 @@ The correct code is:
     ]
 ]
 
-(link: "Reset Puzzle")[
-    (set: $playerOrder to (array:))
-]
+[[Reset Puzzle-&gt;Access Terminal]]
+
 </tw-passagedata><tw-passagedata pid="126" name="Exit Room" tags="Good" position="5750,1250" size="100,100">(enchant:?page,(bg:grey))The alarm stops.
 
 The crystal lets out a low, resonating hum, like a final, anguished heartbeat, and then its light dims. 
@@ -2366,7 +2376,7 @@ Momo leaps over the pipe and together, you sprint out of the machine, the collap
 
 You are safe. The danger has passed.
 
-[[Call Hellicopter|Return to Base]]</tw-passagedata><tw-passagedata pid="127" name=" Control Panels" tags="" position="4500,800" size="100,100">(enchant:?page,(bg:grey))You see several control consoles around the room, each with **a dial or switch with strange symbols** on them. 
+[[Call Helicopter|Return to Base]]</tw-passagedata><tw-passagedata pid="127" name=" Control Panels" tags="" position="4500,800" size="100,100">(enchant:?page,(bg:grey))You see several control consoles around the room, each with **a dial or switch with strange symbols** on them. 
 
 The panels seem to control the energy flow from the crystal.
 
@@ -2417,7 +2427,7 @@ The symbol near the panel lights up: **❌**.
 The crystal’s pulse is now erratic and dimming. You've **disrupted the flow**.
 
 [[Access the terminal| Access Terminal]]
-</tw-passagedata><tw-passagedata pid="134" name=" Access Terminal" tags="" position="5175,800" size="100,100">(enchant:?page,(bg:grey))With the energy in the room weakening, the terminal is now accessible. A prompt appears on the screen:
+</tw-passagedata><tw-passagedata pid="134" name=" Access Terminal" tags="" position="5175,725" size="100,100">(enchant:?page,(bg:grey))With the energy in the room weakening, the terminal is now accessible. A prompt appears on the screen:
 
 **"Enter the stabilization code to finalize deactivation."**
 &lt;br&gt;(set: $triangle to "🔺")
@@ -2466,9 +2476,7 @@ The correct code is:
     ]
 ]
 
-(link: "Reset Puzzle")[
-    (set: $playerOrder to (array:))
-]
+[[Reset Puzzle-&gt; Access Terminal]]
 </tw-passagedata><tw-passagedata pid="135" name=" Exit Room" tags="Good" position="5300,800" size="100,100">(enchant:?page,(bg:grey))The alarm stops.
 
 The crystal lets out a low, resonating hum, like a final, anguished heartbeat, and then its light dims. 
@@ -2499,7 +2507,7 @@ Momo leaps over the pipe and together, you sprint out of the machine, the collap
 
 You are safe. The danger has passed.
 
-[[Call Hellicopter| Return to Base]]</tw-passagedata><tw-passagedata pid="136" name=" Return to Base" tags="Good" position="5475,800" size="100,100">You and Momo exit the helicopter outside the base, your steps slow but steady. 
+[[Call Helicopter| Return to Base]]</tw-passagedata><tw-passagedata pid="136" name=" Return to Base" tags="Good" position="5475,800" size="100,100">You and Momo exit the helicopter outside the base, your steps slow but steady. 
 
 The hum of the machine has stopped; the oppressive energy that once filled the air is now nothing more than a distant memory.
 
